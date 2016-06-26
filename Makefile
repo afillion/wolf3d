@@ -10,7 +10,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 LDFLAGS = -L libft -lft -L/usr/local/lib -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
-SRC =
+SRC = main.c \
+	  ray_cast.c \
+	  put_pixel_to_img.c \
 
 OBJ = $(SRC:.c=.o)
 
