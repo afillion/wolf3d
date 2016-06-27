@@ -14,7 +14,7 @@ void	ray_cast(t_env *e)
 		e->ray_pos_x = e->pos_x;
 		e->ray_pos_y = e->pos_y;
 		e->ray_dir_x = e->dir_x + (e->plane_x * e->cam_x);
-		e->ray_dir_y = e->dir_y + (e->plane_y * e->cam_y);
+		e->ray_dir_y = e->dir_y + (e->plane_y * e->cam_x);
 		e->map_x = (int)e->ray_pos_x;
 		e->map_y = (int)e->ray_pos_y;
 		e->x_a = sqrt(1 + (e->ray_dir_y * e->ray_dir_y) / (e->ray_dir_x * e->ray_dir_x));

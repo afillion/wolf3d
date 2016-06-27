@@ -44,6 +44,10 @@ typedef struct	s_env
 	int			bpp;
 	int			size;
 	int			endian;
+	double		old_dir_x;
+	double		old_plane_x;
+	double		move_speed;
+	double		rot_speed;
 }				t_env;
 
 void			ray_cast(t_env *e);
