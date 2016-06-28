@@ -48,6 +48,7 @@ typedef struct	s_env
 	double		old_plane_x;
 	double		move_speed;
 	double		rot_speed;
+	double		h_cam;
 }				t_env;
 
 void			ray_cast(t_env *e);

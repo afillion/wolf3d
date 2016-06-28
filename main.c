@@ -16,11 +16,13 @@ int		key_hook(int keycode, t_env *e)
 		exit(0);
 	if (keycode == 126)
 	{
-		e->pos_x += 1;
+		e->pos_x += e->dir_x * e->move_speed;
+		e->pos_y += e->dir_y * e->move_speed;
 	}
 	if (keycode == 125)
 	{
-		e->pos_x -= 1;
+		e->pos_x -= e->dir_x * e->move_speed;
+		e->pos_y -= e->dir_y * e->move_speed;
 	}
 	if (keycode == 124)
 	{
@@ -51,8 +53,8 @@ int		main(void)
 	e.dir_x = -1, e.dir_y = 0;
 	e.plane_x = 0, e.plane_y = 0.60;
 	e.time = 0, e.old_time = 0;
-	e.move_speed = 10;
-	e.rot_speed = 0.1;
+	e.move_speed = 1;
+	e.rot_speed = 0.2;
 
 	e.mlx = mlx_init();
 	e.win = mlx_new_window(e.mlx, MAP_W, MAP_H, "Wolf3d");
