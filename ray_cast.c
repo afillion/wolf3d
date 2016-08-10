@@ -1,5 +1,4 @@
 #include "wolf.h"
-#include "carte.h"
 
 void	ray_cast(t_env *e)
 {
@@ -10,7 +9,7 @@ void	ray_cast(t_env *e)
 	while (x < MAP_W)
 	{
 		y = 0;
-		e->cam_x = (2 * x) / (MAP_W - 1);
+		e->cam_x = 2 * x / MAP_W - 1;
 		e->ray_pos_x = e->pos_x;
 		e->ray_pos_y = e->pos_y;
 		e->ray_dir_x = e->dir_x + (e->plane_x * e->cam_x);
@@ -54,7 +53,7 @@ void	ray_cast(t_env *e)
 				e->map_y += e->way_y;
 				e->side = 1;
 			}
-			if (world_map[e->map_x][e->map_y] > 0)
+			if (e->world_map[e->map_x][e->map_y] > 0)
 				e->hit = 1;
 		}
 		if (e->side == 0)
@@ -71,13 +70,13 @@ void	ray_cast(t_env *e)
 		while (y < MAP_H)
 		{
 			e->color = 0xFFFFFF;
-			if (world_map[e->map_x][e->map_y] == 1)
+			if (e->world_map[e->map_x][e->map_y] == 1)
 				e->color = 0xFF0000;
-			if (world_map[e->map_x][e->map_y] == 2)
+			if (e->world_map[e->map_x][e->map_y] == 2)
 				e->color = 0x00FF00;
-			if (world_map[e->map_x][e->map_y] == 3)
+			if (e->world_map[e->map_x][e->map_y] == 3)
 				e->color = 0x0000FF;
-			if (world_map[e->map_x][e->map_y] == 4)
+			if (e->world_map[e->map_x][e->map_y] == 4)
 				e->color = 0xFFFF00;
 			if (!(y >= e->start && y <= e->end))
 				e->color = 0x000000;

@@ -3,6 +3,8 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <math.h>
+# include "libft/includes/libft.h"
+# include "libft/includes/get_next_line.h"
 # define MAP_W 900
 # define MAP_H 700
 
@@ -49,9 +51,15 @@ typedef struct	s_env
 	double		move_speed;
 	double		rot_speed;
 	double		h_cam;
+	int			line;
+	int			col;
+	int			**world_map;
+	char		*filename;
 }				t_env;
 
 void			ray_cast(t_env *e);
 void			put_pixel_to_img(t_env *e, double x, double y);
+void			parse_map(t_env *e);
+int				count_word(const char *s, char c);
 
 #endif
