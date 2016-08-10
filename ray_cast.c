@@ -81,6 +81,8 @@ void	ray_cast(t_env *e)
 				e->color = 0xFFFF00;
 			if (!(y >= e->start && y <= e->end))
 				e->color = 0x000000;
+			if (e->side == 1)
+				e->color = e->color / 2;
 			put_pixel_to_img(e, x, y);
 			y++;
 		}
