@@ -7,6 +7,14 @@
 # include "libft/includes/get_next_line.h"
 # define MAP_W 900
 # define MAP_H 700
+# define FORWARD 13
+# define LEFT 0
+# define BACKWARD 1
+# define RIGHT 2
+# define UP 126
+# define LROTATE 123
+# define DOWN 125
+# define RROTATE 124
 
 typedef struct	s_env
 {
@@ -55,11 +63,23 @@ typedef struct	s_env
 	int			col;
 	int			**world_map;
 	char		*filename;
+	int			forward;
+	int			left;
+	int			right;
+	int			backward;
+	int			up;
+	int			lrotate;
+	int			rrotate;
+	int			down;
 }				t_env;
 
 void			ray_cast(t_env *e);
 void			put_pixel_to_img(t_env *e, double x, double y);
 void			parse_map(t_env *e);
 int				count_word(const char *s, char c);
+int				key_press(int keycode, t_env *e);
+int				key_release(int keycode, t_env *e);
+void			init_key(t_env *e);
+int				key_hook(t_env *e);
 
 #endif

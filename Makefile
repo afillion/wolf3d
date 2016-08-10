@@ -14,6 +14,7 @@ SRC = main.c \
 	  ray_cast.c \
 	  put_pixel_to_img.c \
 	  parse.c \
+	  key.c \
 
 OBJ = $(SRC:.c=.o)
 
