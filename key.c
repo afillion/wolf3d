@@ -14,6 +14,8 @@ void	init_key(t_env *e)
 
 int		key_press(int keycode, t_env *e)
 {
+	if (keycode == 53)
+		exit(0);
 	if (keycode == FORWARD)
 		e->forward = 1;
 	else if (keycode == BACKWARD)
