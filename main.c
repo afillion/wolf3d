@@ -5,6 +5,7 @@
 int		expose(t_env *e)
 {
 	ray_cast(e);
+	key_hook(e);
 	return (0);
 }
 
