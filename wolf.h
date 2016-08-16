@@ -71,6 +71,7 @@ typedef struct	s_env
 	int			lrotate;
 	int			rrotate;
 	int			down;
+	double		updown;
 }				t_env;
 
 void			ray_cast(t_env *e);

@@ -61,10 +61,10 @@ void	ray_cast(t_env *e)
 		else
 			e->d_ray = (e->map_y - e->ray_pos_y + (1 - e->way_y) / 2) / e->ray_dir_y;
 		e->height_line = (int)(MAP_H / e->d_ray);
-		e->start = (e->height_line * -1) / 2 + MAP_H / 2;
+		e->start = (e->height_line * -1) / 2 + MAP_H / e->updown;
 		if (e->start < 0)
 			e->start = 0;
-		e->end = e->height_line / 2 + MAP_H / 2;
+		e->end = e->height_line / 2 + MAP_H / e->updown;;
 		if (e->end >= MAP_H)
 			e->end = MAP_H - 1;
 		while (y < MAP_H)

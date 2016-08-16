@@ -57,6 +57,15 @@ int		key_hook(t_env *e)
 		e->plane_x = e->plane_x * cos(e->rot_speed) - e->plane_y * sin(e->rot_speed);
 		e->plane_y = e->old_plane_x * sin(e->rot_speed) + e->plane_y * cos(e->rot_speed);
 	}
+	if (e->up == 1 || e->down == 1)
+	{
+		if (e->up == 1)
+			e->updown = 1.5;
+		if (e->down == 1)
+			e->updown = 3;
+	}
+	else
+		e->updown = 2;
 	ray_cast(e);
 	return (0);
 }
