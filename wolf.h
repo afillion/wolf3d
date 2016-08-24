@@ -82,5 +82,12 @@ int				key_press(int keycode, t_env *e);
 int				key_release(int keycode, t_env *e);
 void			init_key(t_env *e);
 int				key_hook(t_env *e);
+void			forward(t_env *e);
+void			backward(t_env *e);
+void			left(t_env *e);
+void			right(t_env *e);
+void			right_rotate(t_env *e);
+void			left_rotate(t_env *e);
+void			updown_view(t_env *e);
 
 #endif

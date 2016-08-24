@@ -12,58 +12,19 @@ int		expose(t_env *e)
 int		key_hook(t_env *e)
 {
 	if (e->forward == 1)
-	{
-		if (e->world_map[(int)(e->pos_x + e->dir_x * e->move_speed)][(int)(e->pos_y)] == 0)
-			e->pos_x += e->dir_x * e->move_speed;
-		if (e->world_map[(int)(e->pos_x)][(int)(e->pos_y + e->dir_y * e->move_speed)] == 0)
-			e->pos_y += e->dir_y * e->move_speed;
-	}
+		forward(e);
 	if (e->backward == 1)
-	{
-		if (e->world_map[(int)(e->pos_x - e->dir_x * e->move_speed)][(int)e->pos_y] == 0)
-			e->pos_x -= e->dir_x * e->move_speed;
-		if (e->world_map[(int)e->pos_x][(int)(e->pos_y - e->dir_y * e->move_speed)] == 0)
-			e->pos_y -= e->dir_y * e->move_speed;
-	}
+		backward(e);
 	if (e->left == 1)
-	{
-		if (e->world_map[(int)(e->pos_x - e->dir_y * e->move_speed)][(int)(e->pos_y)] == 0)
-			e->pos_x -= e->dir_y * e->move_speed;
-		if (e->world_map[(int)(e->pos_x)][(int)(e->pos_y + e->dir_x * e->move_speed)] == 0)
-			e->pos_y += e->dir_x * e->move_speed;
-	}
+		left(e);
 	if (e->right == 1)
-	{
-		if (e->world_map[(int)(e->pos_x + e->dir_y * e->move_speed)][(int)(e->pos_y)] == 0)
-			e->pos_x += e->dir_y * e->move_speed;
-		if (e->world_map[(int)(e->pos_x)][(int)(e->pos_y - e->dir_x * e->move_speed)] == 0)
-			e->pos_y -= e->dir_x * e->move_speed;
-	}
+		right(e);
 	if (e->rrotate == 1)
-	{
-		e->old_dir_x = e->dir_x;
-		e->dir_x = e->dir_x * cos(-e->rot_speed) - e->dir_y * sin(-e->rot_speed);
-		e->dir_y = e->old_dir_x * sin(-e->rot_speed) + e->dir_y * cos(-e->rot_speed);
-		e->old_plane_x = e->plane_x;
-		e->plane_x = e->plane_x * cos(-e->rot_speed) - e->plane_y * sin(-e->rot_speed);
-		e->plane_y = e->old_plane_x * sin(-e->rot_speed) + e->plane_y * cos(-e->rot_speed);
-	}
+		right_rotate(e);
 	if (e->lrotate == 1)
-	{
-		e->old_dir_x = e->dir_x;
-		e->dir_x = e->dir_x * cos(e->rot_speed) - e->dir_y * sin(e->rot_speed);
-		e->dir_y = e->old_dir_x * sin(e->rot_speed) + e->dir_y * cos(e->rot_speed);
-		e->old_plane_x = e->plane_x;
-		e->plane_x = e->plane_x * cos(e->rot_speed) - e->plane_y * sin(e->rot_speed);
-		e->plane_y = e->old_plane_x * sin(e->rot_speed) + e->plane_y * cos(e->rot_speed);
-	}
+		left_rotate(e);
 	if (e->up == 1 || e->down == 1)
-	{
-		if (e->up == 1)
-			e->updown = 1.5;
-		if (e->down == 1)
-			e->updown = 3;
-	}
+		updown_view(e);
 	else
 		e->updown = 2;
 	ray_cast(e);

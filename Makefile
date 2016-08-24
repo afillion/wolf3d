@@ -15,6 +15,8 @@ SRC = main.c \
 	  put_pixel_to_img.c \
 	  parse.c \
 	  key.c \
+	  moves.c \
+	  views.c \
 
 OBJ = $(SRC:.c=.o)
 
