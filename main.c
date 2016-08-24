@@ -34,15 +34,8 @@ int		key_hook(t_env *e)
 int		main(int ac, char **av)
 {
 	t_env	e;
-	e.pos_x = 22, e.pos_y = 12;
-	e.dir_x = -1, e.dir_y = 0;
-	e.plane_x = 0, e.plane_y = 0.66;
-	e.time = 0, e.old_time = 0;
-	e.move_speed = 0.15;
-	e.rot_speed = 0.07;
-	e.line = 0;
-	e.col = 0;
 
+	init_struct(&e);
 	if (ac == 2)
 	{
 		e.filename = av[1];

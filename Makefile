@@ -18,6 +18,7 @@ SRC = main.c \
 	  moves.c \
 	  views.c \
 	  algo.c \
+	  init.c \
 
 OBJ = $(SRC:.c=.o)
 

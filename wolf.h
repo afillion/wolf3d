@@ -92,5 +92,8 @@ void			updown_view(t_env *e);
 void			get_way_and_dist(t_env *e);
 void			dda_algo(t_env *e);
 void			get_start_end(t_env *e);
+void			init_ray(t_env *e);
+void			init_struct(t_env *e);
+void			color(t_env *e, double y);
 
 #endif
