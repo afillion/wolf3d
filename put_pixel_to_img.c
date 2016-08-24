@@ -21,8 +21,10 @@ void	color(t_env *e, double y)
 		e->color = 0x0000FF;
 	if (e->world_map[e->map_x][e->map_y] == 4)
 		e->color = 0xFFFF00;
-	if (!(y >= e->start && y <= e->end))
-		e->color = 0x000000;
 	if (e->side == 1)
 		e->color = e->color / 2;
+	if (y < e->start)
+		e->color = 0x00FFFF;
+	if (y > e->end)
+		e->color = 0xFFCC99;
 }
