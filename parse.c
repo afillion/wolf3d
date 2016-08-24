@@ -25,27 +25,13 @@ int		count_word(const char *s, char c)
 	return (nb);
 }
 
-void	parse_map(t_env *e)
+void	split_map(t_env *e, char *map)
 {
-	int		fd;
 	int		i;
 	int		j;
-	char	**new;
 	char	**split;
-	char	*line;
-	char	*map;
+	char	**new;
 
-	line = NULL;
-	map = ft_strnew(0);
-	fd = open(e->filename, O_RDONLY);
-	//if fd < 1 go ft_exit
-	while (get_next_line(fd, &line) > 0)
-	{
-		map = ft_strjoin(map, ft_strjoin(line, "\n"));
-		free(line);
-		e->line++;
-	}
-	close(fd);
 	i = 0;
 	j = 0;
 	split = ft_strsplit(map, '\n');
@@ -64,4 +50,24 @@ void	parse_map(t_env *e)
 		}
 		i++;
 	}
+}
+
+void	parse_map(t_env *e)
+{
+	int		fd;
+	char	*line;
+	char	*map;
+
+	line = NULL;
+	map = ft_strnew(0);
+	fd = open(e->filename, O_RDONLY);
+	//if fd < 1 go ft_exit
+	while (get_next_line(fd, &line) > 0)
+	{
+		map = ft_strjoin(map, ft_strjoin(line, "\n"));
+		free(line);
+		e->line++;
+	}
+	close(fd);
+	split_map(e, map);
 }

@@ -89,5 +89,8 @@ void			right(t_env *e);
 void			right_rotate(t_env *e);
 void			left_rotate(t_env *e);
 void			updown_view(t_env *e);
+void			get_way_and_dist(t_env *e);
+void			dda_algo(t_env *e);
+void			get_start_end(t_env *e);
 
 #endif

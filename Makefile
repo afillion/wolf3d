@@ -17,6 +17,7 @@ SRC = main.c \
 	  key.c \
 	  moves.c \
 	  views.c \
+	  algo.c \
 
 OBJ = $(SRC:.c=.o)
 
