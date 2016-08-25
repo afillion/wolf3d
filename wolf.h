@@ -7,6 +7,8 @@
 # include "libft/includes/get_next_line.h"
 # define MAP_W 900
 # define MAP_H 700
+# define TEXWIDTH 64
+# define TEXHEIGHT 64
 # define FORWARD 13
 # define LEFT 0
 # define BACKWARD 1
