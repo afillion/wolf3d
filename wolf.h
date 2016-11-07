@@ -23,6 +23,9 @@ typedef struct	s_env
 	void		*mlx;
 	void		*win;
 	void		*img;
+	void		*img2;
+	void		*img3;
+	void		*img4;
 	char		*data;
 	double		pos_x;
 	double		pos_y;
@@ -74,6 +77,13 @@ typedef struct	s_env
 	int			rrotate;
 	int			down;
 	double		updown;
+	int			buffer[MAP_H][MAP_W];
+	int			lenght;
+	int			width;
+	int			texnum;
+	int			tex_width;
+	int			tex_x;
+	double		wall_x;
 }				t_env;
 
 void			ray_cast(t_env *e);
@@ -97,5 +107,6 @@ void			get_start_end(t_env *e);
 void			init_ray(t_env *e);
 void			init_struct(t_env *e);
 void			color(t_env *e, double y);
+void			texel(t_env *e);
 
 #endif

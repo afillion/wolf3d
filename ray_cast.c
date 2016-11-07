@@ -14,6 +14,7 @@ void	ray_cast(t_env *e)
 		get_way_and_dist(e);
 		dda_algo(e);
 		get_start_end(e);
+		texel(e);
 		while (y < MAP_H)
 		{
 			color(e, y);

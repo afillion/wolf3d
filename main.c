@@ -45,6 +45,9 @@ int		main(int ac, char **av)
 	e.mlx = mlx_init();
 	e.win = mlx_new_window(e.mlx, MAP_W, MAP_H, "Wolf3d");
 	e.img = mlx_new_image(e.mlx, MAP_W, MAP_H);
+	e.img2 = mlx_xpm_file_to_image(e.mlx, "./Texture/greystone.xpm", &e.lenght, &e.width);
+	e.img3 = mlx_xpm_file_to_image(e.mlx, "./Texture/colorstone.xpm", &e.lenght, &e.width);
+	e.img4 = mlx_xpm_file_to_image(e.mlx, "./Texture/eagle.xpm", &e.lenght, &e.width);
 	e.data = mlx_get_data_addr(e.img, &e.bpp, &e.size, &e.endian);
 	mlx_loop_hook(e.mlx, expose, &e);
 //	mlx_expose_hook(e.win, expose, &e);
