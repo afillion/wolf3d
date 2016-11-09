@@ -19,6 +19,8 @@ SRC = main.c \
 	  views.c \
 	  algo.c \
 	  init.c \
+	  textures.c \
+	  get_pxl_col.c \
 
 OBJ = $(SRC:.c=.o)
 

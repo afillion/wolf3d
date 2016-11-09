@@ -5,10 +5,15 @@
 # include <math.h>
 # include "libft/includes/libft.h"
 # include "libft/includes/get_next_line.h"
+
+#include <stdio.h>
+
 # define MAP_W 900
 # define MAP_H 700
-# define TEXWIDTH 64
-# define TEXHEIGHT 64
+# define TEX_WIDTH 64
+# define TEX_HEIGHT 64
+# define SKY_WIDTH 800
+# define SKY_HEIGHT 90
 # define FORWARD 13
 # define LEFT 0
 # define BACKWARD 1
@@ -18,15 +23,34 @@
 # define DOWN 125
 # define RROTATE 124
 
+typedef struct	s_colors
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+}				t_col;
+
+typedef struct	s_tex
+{
+	void		*img;
+	char		*data;
+	int			bpp;
+	int			size;
+	int			endian;
+}				t_tex;
+
 typedef struct	s_env
 {
+	int				x;
+	struct s_tex	skybox;
+	struct s_tex	tex_tab[20];
 	void		*mlx;
 	void		*win;
 	void		*img;
-	void		*img2;
-	void		*img3;
-	void		*img4;
 	char		*data;
+	int			bpp;
+	int			size;
+	int			endian;
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
@@ -56,9 +80,6 @@ typedef struct	s_env
 	int			start;
 	int			end;
 	int			color;
-	int			bpp;
-	int			size;
-	int			endian;
 	double		old_dir_x;
 	double		old_plane_x;
 	double		move_speed;
@@ -83,11 +104,13 @@ typedef struct	s_env
 	int			texnum;
 	int			tex_width;
 	int			tex_x;
+	int			tex_y;
+	int			tex_id;
 	double		wall_x;
 }				t_env;
 
 void			ray_cast(t_env *e);
-void			put_pixel_to_img(t_env *e, double x, double y);
+void			put_pixel_to_img(t_env *e, t_col *col, int x, int y);
 void			parse_map(t_env *e);
 int				count_word(const char *s, char c);
 int				key_press(int keycode, t_env *e);
@@ -108,5 +131,7 @@ void			init_ray(t_env *e);
 void			init_struct(t_env *e);
 void			color(t_env *e, double y);
 void			texel(t_env *e);
+void			get_pxl_col(t_env *e, t_col *col, int i);
+int				tex_init(t_env *e);
 
 #endif

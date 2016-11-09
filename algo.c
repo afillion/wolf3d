@@ -58,6 +58,6 @@ void	get_start_end(t_env *e)
 	if (e->start < 0)
 		e->start = 0;
 	e->end = e->height_line / 2 + MAP_H / e->updown;
-	if (e->end >= MAP_H)
-		e->end = MAP_H - 1;
+	if (e->end > MAP_H)
+		e->end = MAP_H;
 }
