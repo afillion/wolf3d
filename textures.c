@@ -3,14 +3,16 @@
 void	texel(t_env *e)
 {
 	e->tex_id = e->world_map[e->map_x][e->map_y] - 1;
-	if (e->side == 1)
-		e->wall_x = e->ray_pos_x + ((e->map_y - e->ray_pos_y + (1 - e->way_y) / 2) / e->ray_dir_y) * e->ray_dir_x;
+	if (e->side == 0)
+		e->wall_x = e->ray_pos_y + e->d_ray * e->ray_dir_y;
 	else
-		e->wall_x = e->ray_pos_y + ((e->map_x - e->ray_pos_x + (1 - e->way_x) / 2) / e->ray_dir_x) * e->ray_dir_y;
+		e->wall_x = e->ray_pos_x + e->d_ray * e->ray_dir_x;
 	e->wall_x -= floor((e->wall_x));
 	//e->wall_x *= TEX_HEIGHT;
 	//e->wall_x = (int)e->wall_x;
 	e->tex_x = (int)(e->wall_x * (double)TEX_WIDTH);
+	if (e->tex_x >= 64)
+		e->tex_x = e->tex_x % 64;
 	if (e->side == 0 && e->ray_dir_x > 0)
 		e->tex_x = TEX_WIDTH - e->tex_x - 1;
 	if (e->side == 1 && e->ray_dir_y < 0)

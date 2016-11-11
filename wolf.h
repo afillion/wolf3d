@@ -133,5 +133,6 @@ void			color(t_env *e, double y);
 void			texel(t_env *e);
 void			get_pxl_col(t_env *e, t_col *col, int i);
 int				tex_init(t_env *e);
+void			draw_wall(t_env *e, t_col *col);
 
 #endif

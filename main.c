@@ -46,7 +46,7 @@ int		main(int ac, char **av)
 	e.win = mlx_new_window(e.mlx, MAP_W, MAP_H, "Wolf3d");
 	e.img = mlx_new_image(e.mlx, MAP_W, MAP_H);
 	e.data = mlx_get_data_addr(e.img, &e.bpp, &e.size, &e.endian);
-	tex_init(&e);
+	//tex_init(&e);
 	mlx_loop_hook(e.mlx, expose, &e);
 //	mlx_expose_hook(e.win, expose, &e);
 	mlx_hook(e.win, 2, (1L << 0), &key_press, &e);
